@@ -16,11 +16,20 @@ function playGame(rounds){
     for( let i=1 ; i <= rounds; i++ ){
         // Prompting the user for an input and recoding the given values
         user_input  = prompt("Pick Rock(1), Paper (2), or Scissors(3)")
-        let humanSelection    = getHumanChoice(user_input) // evaluates the user input
-        let computerSelection = getComputerChoice();
+        
+        if (user_input === null|| user_input.trim() ==""){
 
-        playRound(humanSelection,computerSelection)
-        console.log( "The Score is " + humanScore +" for the squishy one and " + computerScore + " for the mechanical master mind!")
+            computerScore = computerScore + 1
+            console.log ("Your silence speaks volume, inaction is action, YOU STILL LOSE!!!") 
+            console.log( "The Score is " + humanScore +" for the squishy one and " + computerScore + " for the mechanical master mind!")
+
+        }else{
+            let humanSelection    = getHumanChoice(user_input) // evaluates the user input
+            let computerSelection = getComputerChoice();
+
+            playRound(humanSelection,computerSelection)
+            console.log( "The Score is " + humanScore +" for the squishy one and " + computerScore + " for the mechanical master mind!")
+        }
     }
 
     
